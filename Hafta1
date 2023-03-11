@@ -1,7 +1,3 @@
-
-
-package bmü112_hafta1;
-
 import java.util.Scanner;
 
 public class Bmü112_Hafta1 {
@@ -25,8 +21,6 @@ public class Bmü112_Hafta1 {
 
 ********************************************************************************
 
-package bmü112_hafta1_2;
-
 public class Bmü112_Hafta1_2 {
     
     public static int[] enb_enk_bul(int d[]) {
@@ -48,8 +42,6 @@ public class Bmü112_Hafta1_2 {
 }
 
 ********************************************************************************
-
-package bmü112_hafta1_3;
 
 public class Bmü112_Hafta1_3 {
     
