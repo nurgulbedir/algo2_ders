@@ -1,1 +1,26 @@
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Bmü112_Hafta2 {
+
+    public static void main(String[] args) {
+        boolean devam = true;
+        do {
+            Scanner k = new Scanner(System.in);
+            try {
+                System.out.println("Sayı giriniz: ");
+                int x = k.nextInt();
+                int y = k.nextInt();
+                int sonuc = x / y;
+                System.out.println("Sonuç:" + sonuc);
+                devam = false;
+            } catch (ArithmeticException e) {
+                System.out.println("Sıfıra bölme hatası oluştu");
+                k.nextLine();            //hatayı atlayacak, bir sonrakini okuyacak böylece program çalışmaya devam edecek
+            } catch (InputMismatchException e) {
+                System.out.println("Tip uyuşmazlığı oluştu" + e);
+                k.nextLine();
+            }
+        } while (devam);
+    }
