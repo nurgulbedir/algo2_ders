@@ -1,3 +1,6 @@
+                                                                         -2. hafta Lab dersi- 
+                                                                         ---> Exception <---
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,18 +12,86 @@ public class Bmü112_Hafta2 {
         do {
             Scanner k = new Scanner(System.in);
             try {
-                System.out.println("Sayı giriniz: ");
+                System.out.print("x sayısını giriniz: ");
                 int x = k.nextInt();
+                System.out.print("y sayısını giriniz: ");
                 int y = k.nextInt();
                 int sonuc = x / y;
                 System.out.println("Sonuç:" + sonuc);
                 devam = false;
             } catch (ArithmeticException e) {
-                System.out.println("Sıfıra bölme hatası oluştu");
+                System.out.println("Sıfıra bölme hatası oluştu! "+e);
                 k.nextLine();            //hatayı atlayacak, bir sonrakini okuyacak böylece program çalışmaya devam edecek
             } catch (InputMismatchException e) {
-                System.out.println("Tip uyuşmazlığı oluştu" + e);
+                System.out.println("Tip uyuşmazlığı oluştu! " +e);
                 k.nextLine();
             }
         } while (devam);
     }
+}
+
+********************************************************************************
+
+public class Bmü112_Hafta2_2 {
+
+    public static void main(String[] args) {
+        try {
+            int a = 30, b = 0;
+            int c = a / b;
+            System.out.println("Sonuç:" + c);
+        } catch (ArithmeticException e) {
+            System.out.println("Sıfıra bölme istisnası oluştu! "+e);
+        }
+        System.out.println("Selam! program bitti");
+
+    }
+}
+
+********************************************************************************
+
+public class Bmü112_hafta2_3 {
+
+    public static void main(String[] args) {
+        try {
+            String s = null;
+            System.out.println(s.charAt(0));
+            int x = 5 / 0;
+        } catch (NullPointerException e) {
+            System.out.println("String boş! " + e);         //hem null hem by zero hatası vermiyor
+        } catch (Exception e) {   //exception genel önce yazılmıyor,en genel istisna en alta yazılır
+            System.out.println("Farklı istisnalar! " + e);
+        }
+    }
+}
+
+********************************************************************************
+
+public class Bmü112_hafta2_4 {
+
+    public static void main(String[] args) {
+        try {
+            String s = "Ben Nurgül";
+            char c = s.charAt(10);
+            System.out.println(c);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("String sınırları aşıldı! " + e);
+        }
+    }
+}
+
+********************************************************************************
+
+public class Bmü112_hafta2_5 {
+
+    public static void main(String[] args) {
+        try {
+           int sayi= Integer.parseInt("123x"); 
+            System.out.println(sayi);
+        } catch (NumberFormatException e) {
+            System.out.println("Sayı giriş formatı hatalı! " +e);
+        }
+    }
+}
+
+
+
