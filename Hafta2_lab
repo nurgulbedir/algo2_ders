@@ -85,7 +85,7 @@ public class Bmü112_hafta2_5 {
 
     public static void main(String[] args) {
         try {
-           int sayi= Integer.parseInt("123x"); 
+           int sayi= Integer.parseInt("123x"); //String bir ifadeyi tam sayıya dönüştürmeye yarayan metot..
             System.out.println(sayi);
         } catch (NumberFormatException e) {
             System.out.println("Sayı giriş formatı hatalı! " +e);
