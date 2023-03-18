@@ -90,11 +90,9 @@ public class örn4 {
 
 ********************************************************************************
 
- 
-22222222222222222222222222222222222222222222222.video
 import java.io.*;
 
-public class Bmü112_hafta2_uyg {
+public class örn5 {
 
     public static void main(String[] args) {
         File dosya = new File("sayilar.txt");//dosya değişkeni ile dosya yolunu tut 
@@ -126,7 +124,7 @@ public class Bmü112_hafta2_uyg {
 
 import java.io.*;
 
-public class Bmü112_hafta2_uyg2 {
+public class örn6 {
 
     public static void main(String[] args) {
         File dosya = new File("sayilar.txt");//dosya değişkeni ile dosya yolunu tut 
@@ -160,7 +158,7 @@ public class Bmü112_hafta2_uyg2 {
 
 import java.io.*;
 
-public class Bmü112_hafta2_uyg3 {
+public class örn7 {
     
     public static void main(String[] args) {
         File dosya = new File("sayilar2.txt");//dosya değişkeni ile dosya yolunu tut 
@@ -187,8 +185,31 @@ public class Bmü112_hafta2_uyg3 {
 
 ********************************************************************************
 
+import java.io.*;
+import java.util.Scanner;
 
+public class örn8 {
+    public static void main(String[] args) {
+        File dosya=new File("sayilar.txt");
+        Scanner oku;
+        try {
+           oku=new Scanner(dosya) ;
+           int i=0,enk=0,top=0,enb=0;
+           while(oku.hasNext()){ 
+             int sayi=oku.nextInt();
+             top=top+sayi; 
+             if(i==0) enk=sayi;
+             if(sayi<enk) enk=sayi;
+             if(sayi>enb) enb=sayi;
+               System.out.print(sayi+"\t"); 
+               i++;
+           }
+           oku.close();
+           System.out.println("\nEn küçük sayı:"+enk+"\nEn büyük sayı:"+enb+"\n"+"Toplam:"+top+ "\ndosyada " + i + " adet sayı var");
+        } catch (Exception e) {
+        }
+    }
+}
 
-
-
-                                                               
+                                                                         --SON--                                                              
+ 
