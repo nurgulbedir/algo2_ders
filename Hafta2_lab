@@ -32,7 +32,7 @@ public class Bmü112_Hafta2 {
 
 ********************************************************************************
 
-public class Bmü112_Hafta2_2 {
+public class örn2 {
 
     public static void main(String[] args) {
         try {
@@ -49,7 +49,7 @@ public class Bmü112_Hafta2_2 {
 
 ********************************************************************************
 
-public class Bmü112_hafta2_3 {
+public class örn3 {
 
     public static void main(String[] args) {
         try {
@@ -66,7 +66,7 @@ public class Bmü112_hafta2_3 {
 
 ********************************************************************************
 
-public class Bmü112_hafta2_4 {
+public class örn4 {
 
     public static void main(String[] args) {
         try {
@@ -81,7 +81,7 @@ public class Bmü112_hafta2_4 {
 
 ********************************************************************************
 
-public class Bmü112_hafta2_5 {
+public class örn5 {
 
     public static void main(String[] args) {
         try {
