@@ -1,24 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package bmü112_hafta2;
 
-package bmü112_hafta1;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Bmü112_Hafta1 {
-    
-    public static int Faktoriyelhesap(int x) {   //Faktöriyel hesabı
-        int fakt=1;
-        for (int i = 1; i <=x; i++) 
-            fakt=fakt*i;
-        return fakt;  
-    }
+public class Bmü112_Hafta2 {
+
     public static void main(String[] args) {
-        Scanner k=new Scanner(System.in);       
-        System.out.print("Sayı giriniz:");
-        int x=k.nextInt();
-        System.out.println(x + " sayısının faktöriyeli:"+ Faktoriyelhesap(x));
-        
-        int buyuksayi=Math.max(5,3);   //Büyük sayı bulma
-        System.out.println("Büyük sayı:" + buyuksayi);
+        boolean devam = true;
+        do {
+            Scanner k = new Scanner(System.in);
+            try {
+                System.out.print("x sayısını giriniz: ");
+                int x = k.nextInt();
+                System.out.print("y sayısını giriniz: ");
+                int y = k.nextInt();
+                int sonuc = x / y;
+                System.out.println("Sonuç:" + sonuc);
+                devam = false;
+            } catch (ArithmeticException e) {
+                System.out.println("Sıfıra bölme hatası oluştu! "+e);
+                k.nextLine();            //hatayı atlayacak, bir sonrakini okuyacak böylece program çalışmaya devam edecek
+            } catch (InputMismatchException e) {
+                System.out.println("Tip uyuşmazlığı oluştu! " +e);
+                k.nextLine();
+            }
+        } while (devam);
     }
 }
-

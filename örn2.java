@@ -1,23 +1,25 @@
-package bmü112_hafta1;
+package bmü112_hafta2;
+
+import java.io.*;
 
 public class örn2 {
 
-    public static int[] enb_enk_bul(int d[]) {
-        int ee[] = new int[2];
-        ee[0] = d[0];
-        ee[1] = d[0];
-        for (int i = 0; i < d.length; i++) {
-            if (ee[0] > d[i])  ee[0] = d[i];
-            
-            if (ee[1] < d[i]) ee[1] = d[i];   
-        }
-        return ee;
-    }
-
     public static void main(String[] args) {
-        int dizi[] = {1, 5, 6, 10, 2, 18, 7, 3, -1, 9, 12};
-        int s[] = enb_enk_bul(dizi);
-        System.out.println("En küçük:" + s[0] + " En büyük:" + s[1]);
+        String klasor = "c:\\dosyam\\";
+        File dosya;
+        try {
+            for (int i = 0; i < 10; i++) {
+                dosya = new File(klasor + i + ".txt");
+                if (!dosya.exists()) {
+                    dosya.createNewFile();
+                    System.out.println(dosya.getName() + " isimli dosya oluşturuldu");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Dosya yolu hatası: " + e.getMessage());
+        }
 
     }
 }
+
+
