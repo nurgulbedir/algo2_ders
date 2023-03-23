@@ -1,0 +1,46 @@
+                                                                      -3. hafta Uygulama dersi- 
+                                                                 ---> Dosya ile ilgili uygulamalar <---
+
+
+import java.io.*;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Bmü112_Hafta3_uygulama {
+
+    public static void main(String[] args) {
+        File dosya=new File("sayilar.txt");
+        PrintWriter p=null;
+        try {
+            if(!dosya.exists())
+                dosya.createNewFile();
+            else
+                System.out.println("Dosya mevcut");
+            p= new PrintWriter(new FileOutputStream(dosya, false));     //Yani eğer dosya zaten varsa, içeriği silinip yeniden yazılır.
+            Random rnd=new Random();                                    //Eğer ikinci parametre "true" olarak ayarlanırsa,mevcut dosyanın sonuna ekleme yapılır
+            for (int i = 1; i < 50; i++) {
+               int sayi=rnd.nextInt(100); //100 üst sınır 
+               p.println(sayi);
+            }
+            p.close();
+            Scanner oku =new Scanner(dosya);
+            int i=0,enk=100;
+            while(oku.hasNext()){  //bir sonraki token varsa true yoksa false değeri döndürür.
+                int sayi=oku.nextInt();
+                System.out.print(sayi+"\t");
+                if(i==0) enk=sayi;
+                if(sayi<enk) enk=sayi;
+                i++;
+                if(i%10==0) System.out.println(" ");
+                
+            }
+            System.out.println("\n En küçük sayı: "+enk);
+            oku.close();
+        } catch (Exception e) {
+        }
+    }
+}
+
+********************************************************************************
+
+
