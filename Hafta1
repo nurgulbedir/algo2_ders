@@ -21,7 +21,7 @@ public class Bmü112_Hafta1 {
 
 ********************************************************************************
 
-public class Bmü112_Hafta1_2 {
+public class örn2 {
     
     public static int[] enb_enk_bul(int d[]) {
        int ee[]= new int[2];
@@ -43,7 +43,7 @@ public class Bmü112_Hafta1_2 {
 
 ********************************************************************************
 
-public class Bmü112_Hafta1_3 {
+public class örn3 {
     
     public static int usbul(int a,int b){
         if(b==0)  return 1;
