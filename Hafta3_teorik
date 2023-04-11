@@ -1,0 +1,204 @@
+                                                                         -3. hafta Teorik dersi- 
+                                                                        --->Sınıflar, Metotlar<---
+
+
+class cember {
+
+    double r;//veri alanı - nesnenin durumu
+
+    cember() {//kurucu metot - parametresiz - Davranış
+        r=1.0;
+    }
+    cember(double nr){//kurucu metot - parammetreli-Davranış
+        r=nr;
+    }
+        double alanHesapla(){//metot - davranış
+            return Math.PI*r*r;
+    }
+        double cevreHesapla(){
+            return 2*Math.PI*r;
+    }  
+   }
+    public class Bmü112_Hafta3_lab{//class sadece 1 tanesi public olur o da dosyanın ismini tutan
+        static int topla(int a,int b){//static olmazsa psvm altına nesne oluşturmak lazım
+            return a+b;
+        }
+        public static void main(String[] args) {
+            System.out.println(topla(4,5));
+        }
+    }
+    
+********************************************************************************
+
+class cember {
+
+    double r;//veri alanı - nesnenin durumu
+
+    cember() {//kurucu metot - parametresiz - Davranış
+        r=2.0;
+    }
+    cember(double nr){//kurucu metot - parammetreli-Davranış
+        r=nr;
+    }
+        double alanHesapla(){//metot - davranış
+            return Math.PI*r*r;
+    }
+        double cevreHesapla(){
+            return 2*Math.PI*r;
+    }  
+   }
+    public class Bmü112_Hafta3_lab{//class sadece 1 tanesi public olur o da dosyanın ismini tutan
+        static int topla(int a,int b){//static olmazsa psvm altına nesne oluşturmak lazım
+            return a+b;
+        }
+        public static void main(String[] args) {
+            cember c1=new cember();
+            cember c2=new cember(4);
+            System.out.println("Çember-1 Yarıçap: "+c1.r);
+            System.out.println("Çember-1 Alan: : "+c1.alanHesapla());
+            System.out.println("Çember-1 Çevre: : "+c1.cevreHesapla());
+            System.out.println("Çember-2 Yarıçap: "+c2.r);
+            System.out.println("Çember-2 Alan: : "+c2.alanHesapla());
+            System.out.println("Çember-2 Çevre: : "+c2.cevreHesapla());
+            c2.r=2.4;//çember 2 yarıçap değiştirme
+            System.out.println("Çember-2 Alan: : "+c2.alanHesapla());
+            System.out.println("Çember-2 Çevre: : "+c2.cevreHesapla());
+            
+        }
+    }
+    
+    ********************************************************************************
+    
+class ogrenci{
+    int no; 
+    String isim;
+    int v,f;
+    
+    ogrenci(int numara,String ad,int vize,int genel){ 
+        no=numara;
+        isim=ad;
+        v=vize;
+        f=genel;
+    }
+    double ortalamaBul(){
+        return v*0.4+f*0.6;
+    }
+    String gecmeDurumu(){
+        if(ortalamaBul()>=50)
+            return "Geçti";
+        else 
+            return "Kaldı";
+    }
+    void goster(){
+        System.out.println(no+"\t"+isim+"\t"+v+"\t"+f+"\t"+ortalamaBul()+"\t"+gecmeDurumu());
+    }
+}
+public class s2 {
+    public static void main(String[] args) {
+        ogrenci o=new ogrenci(225260013,"nurgül",37,78);  
+        o.goster();  
+    }
+}
+
+********************************************************************************
+
+public class s2_farklıdizayn {
+    public static void main(String[] args) {
+        ogrenci o=new ogrenci(225260013,"nurgül",37,78);  
+        o.goster();
+        //ogrenci o1 = new ogrenci(106, "murathan", 23, 54);
+        //o1.goster();   başka bir öğrenci denemesi
+    }
+}
+class ogrenci{
+    int no; 
+    String isim;
+    int v,f;
+    ogrenci(int numara,String ad,int vize,int genel){ 
+        no=numara;
+        isim=ad;
+        v=vize;
+        f=genel;
+    }
+    double ortalamaBul(){
+        return v*0.4+f*0.6;
+    }
+    String gecmeDurumu(){
+        if(ortalamaBul()>=50)
+            return "Geçti";
+        else 
+            return "Kaldı";
+    }
+    void goster(){
+        System.out.println(no+"\t"+isim+"\t"+v+"\t"+f+"\t"+ortalamaBul()+"\t"+gecmeDurumu());
+    }
+}
+
+********************************************************************************
+
+class dikdortgen {
+
+    double kısakenar;// ya da burada kısakenar=3; yapılabilir
+    double uzunkenar;
+
+    dikdortgen(double kısa, double uzun) {
+        kısakenar = kısa;
+        uzunkenar = uzun;
+
+    }
+
+    double alanBul() {
+        return kısakenar * uzunkenar;
+    }
+
+    double cevreBul() {
+        return 2 * (kısakenar + uzunkenar);
+    }
+}
+
+public class s3 {
+
+    public static void main(String[] args) {
+        dikdortgen d1 = new dikdortgen(3,5);
+        System.out.println("Kenar-1: " + d1.kısakenar);
+        System.out.println("Kenar-2: " + d1.uzunkenar);
+        System.out.println("Alan: " + d1.alanBul());
+        System.out.println("Çevre: " + d1.cevreBul());
+
+    }
+}
+
+********************************************************************************
+
+class Tamsayi {
+
+    int sayi;
+
+    Tamsayi(int s) {
+        sayi = s;
+    }
+
+    boolean tekmi() {
+        if (sayi % 2 == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    int faktoriyel() {
+        int f = 1;
+        for (int i = 1; i <= sayi; i++) 
+            f = f * i;
+            return f;
+     }
+}
+
+public class s4 {
+    public static void main(String[] args) {
+        Tamsayi t=new Tamsayi(7);
+        System.out.println("Sayı: "+t.sayi);
+        System.out.println("Tek mi? "+t.tekmi());
+        System.out.println(t.sayi+"'nin Faktöriyeli: "+t.faktoriyel());
+    }
+}
