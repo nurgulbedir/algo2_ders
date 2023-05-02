@@ -1,0 +1,245 @@
+                                                                         -6. hafta Teorik dersi- 
+                                                                                                                                                 
+class kitap{
+    public String baslik;
+    public String yazar;
+    public kitap(String baslik,String yazar){
+        this.baslik=baslik;
+        this.yazar=yazar;
+    }    
+}
+class kutuphane{
+    public kitap[]ktplar;
+    int indis;
+    public kutuphane(int b) {
+        ktplar=new kitap[b];
+    }
+    public void kitapEkle(kitap k){
+        if(indis<ktplar.length){
+            ktplar[indis]=k;
+            indis++;
+        }
+    }
+    public void goster(){
+        for (int i = 0; i < indis; i++) 
+            System.out.println(ktplar[i].baslik+" "+ktplar[i].yazar);
+    }
+}
+
+public class Bmü112_hafta6_teorik {
+    public static void main(String[] args) {
+        kitap k=new kitap("Java","Daniel Liang");
+        kutuphane ktpn=new kutuphane(10);
+        ktpn.kitapEkle(k);
+        kitap k1=new kitap("C Programlama", "Rifat Çölkesen");
+        ktpn.kitapEkle(k1);
+        ktpn.goster();
+        
+    }
+}
+
+********************************************************************************
+
+class A{
+    int i;
+     int j;
+    void showij(){
+        System.out.println("i ve j:"+i+" "+j);
+    }
+}
+class B extends A{
+    int k;
+    void showk(){
+        System.out.println("k="+k);
+    }
+    void sum(){
+        super.showij();
+        System.out.println("i+j+k="+(i+j+k));
+    }
+}
+public class kalitimuygulama {
+    public static void main(String[] args) {
+        A ustnesne=new A();
+        B altnesne=new B();
+        ustnesne.i=5;
+        ustnesne.j=25;
+        System.out.println("üst nesnenin öğeleri");
+        ustnesne.showij();
+        System.out.println("");
+        altnesne.showij();
+        altnesne.showk();
+        altnesne.sum();
+        //altnesne.i=3;
+        //altnesne.j=5;
+        //altnesne.k=7;
+        //System.out.println("Alt nesnenin elemanları:");
+        //altnesne.showij();
+        //altnesne.showk();
+        //System.out.println("Alt nesne öğeler toplamı:");
+        //altnesne.sum();
+        //System.out.println("ÜSt nesnenin öğeleri:");
+        //ustnesne.showij();
+    }
+}
+
+********************************************************************************
+
+class geometriknesne{
+    String renk;
+    boolean dolumu;
+    public geometriknesne(String renk, boolean dolumu) {
+        this.renk = renk;
+        this.dolumu = dolumu;
+    }
+    String getRenk(){return renk;}
+    boolean getDolumu(){return dolumu;}
+}
+class cember extends geometriknesne{
+    double r;
+    public cember(double r, String rengi, boolean dolumu) {
+        super(rengi, dolumu);
+        this.r = r;
+    }
+    double alanHesapla(){return Math.PI*r*r;}
+}
+class dikdortgen extends geometriknesne{
+    double a,b;
+    public dikdortgen(double a, double b, String renk, boolean dolumu) {
+        super(renk, dolumu);
+        this.a = a;
+        this.b = b;
+    }
+    double getAlan(){ return a*b;}
+}
+
+public class kalitimuygulama2 {
+    public static void main(String[] args) {
+        cember c=new cember(2.3, "Sarı", true);
+        System.out.println(c.getRenk());
+        System.out.println(c.getDolumu());
+        dikdortgen d=new dikdortgen(2, 3, "Kırmızı", true);
+        System.out.println(d.getRenk());
+        System.out.println(d.getDolumu());
+
+    }
+}
+
+********************************************************************************
+
+class kisi{
+    int x;
+    public kisi(int x){
+        System.out.println("(1) Kişinin görevleri");
+    }
+}
+class isci extends kisi{
+    public isci(int x){
+        this("(2) isci aşırı yükleme parametreli metot",2);
+        System.out.println("(3) iscinin görevleri");
+    }
+    public isci(String s,int x){
+        super(x);
+        System.out.println(s);
+    }
+}
+class fakulte extends isci{
+    public fakulte(int x) {
+        super(x);
+        System.out.println("(4) Fakültenin görevleri");
+    }   
+}
+public class kalitim3 {
+    public static void main(String[] args) {
+        fakulte f=new fakulte(5);
+    }
+}
+
+********************************************************************************
+
+class arac{
+    int makshiz=180;
+    void arachizgoster(){
+        System.out.println("Aracın hızı:"+makshiz);
+    }
+}
+class araba extends arac{
+    int makshiz=220;
+    void arachizi(){
+        System.out.println("bu aracın hızı:"+this.makshiz);
+        System.out.println("üst sınıftaki miras alınan hız:"+super.makshiz);
+        //super.arachizgoster();
+    }
+}
+public class kalitim4 {
+    public static void main(String[] args) {
+        araba a=new araba();
+        a.arachizgoster();
+        a.makshiz=10;
+        a.arachizi();
+    }
+}
+
+********************************************************************************
+
+class calisan{
+    public static int taban=10000;
+    public int ucret(){
+        return taban;
+    }
+}
+class yonetici extends calisan{
+    @Override
+    public int ucret(){
+        return taban+20000;
+    }
+}
+class katip extends calisan{
+   @Override
+   public int ucret(){
+        return taban+10000;
+    }
+}
+
+public class kalitim5 {
+    public static void main(String[] args) {
+        calisan c=new calisan();
+        System.out.println(c.ucret());
+        yonetici y=new yonetici();
+        System.out.println(y.ucret());
+        katip k=new katip();
+        System.out.println(k.ucret());
+    }
+}
+
+********************************************************************************
+
+class ucgen{
+    double a,b,c;
+    public ucgen(double a,double b,double c){
+        this.a=a;
+        this.b=b;
+        this.c=c;
+    }
+    double alanHesapla(){
+        double s=cevrehesapla()/2;
+        double alan=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+        return alan;
+    }
+    double cevrehesapla(){
+        return a+b+c;
+    }
+    @Override
+    public String toString(){
+     return "Kenarları "+a+","+b+","+c+" olan üçgenin alanı:"+alanHesapla()+", çevresi:"+cevrehesapla();
+    }
+}
+public class kalitim6 {
+    public static void main(String[] args) {
+        ucgen u=new ucgen(2,3,4);
+        System.out.println(u);
+        
+    }
+}
+
+
+
