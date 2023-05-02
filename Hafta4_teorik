@@ -1,0 +1,179 @@
+                                                                         -4. hafta Teorik dersi- 
+                                                                         
+class ogrenci {
+    String isim;//referans
+    int yas;//referans
+    char cinsiyet;//referans
+    boolean bursluMu;//referans
+}
+
+public class Bmü112_hafta4_teorik {
+
+    public static void main(String[] args) {
+        ogrenci o = new ogrenci();
+        System.out.println(o.isim+" "+o.yas+" "+o.cinsiyet+" "+o.bursluMu);
+    }
+}
+
+********************************************************************************
+
+class dikdortgen{
+    double a;
+    double b;
+    dikdortgen(){
+        a=1;
+        b=1;
+    }
+    dikdortgen(int x, int y) {
+        a = x;
+        b = y;
+    }
+    double alanHesap(){return a*b;}
+    double cevreHesap(){return 2*(a+b);}
+    boolean kareMi(){
+        if(a==b) return true;
+        else return false;
+    }  
+}
+public class örn2 {
+    public static void main(String[] args) {
+      dikdortgen d1=new dikdortgen();
+      dikdortgen d2=new dikdortgen(2,5); 
+        System.out.println("d1 nesnesi parametreleri:"+d1.a+","+d1.b);
+        System.out.println("d2 nesnesi parametreleri:"+d2.a+","+d2.b);
+        d1=d2; 
+        System.out.println("Atama sonrası");
+        System.out.println("d1 nesnesi parametreleri:"+d1.a+","+d1.b);
+        System.out.println("d2 nesnesi parametreleri:"+d2.a+","+d2.b);
+        d2.a=8;
+        System.out.println("d1 nesnesi parametreleri:"+d1.a+","+d1.b);
+    }
+}  
+
+********************************************************************************
+
+import java.util.Date;
+
+public class örn3 {
+
+    public static void main(String[] args) {
+        Date d = new Date();
+        System.out.println("Bugünün Tarihi: " + d);
+        Date d2 = new Date(1345555666883L);
+        System.out.println("Tarih-2: " + d2);
+        boolean a = d2.before(d);
+        System.out.println("2.Tarih Önce mi? " + a);
+        boolean b = d2.after(d);
+        System.out.println("2.Tarih Sonra mı? " + b);
+        Date d3 = new Date(2010, 11, 5);//kullanılamıyor
+        System.out.println("1 Ocak 1970'ten beri geçen süre(ms): " + d.getTime());
+    }
+}
+
+********************************************************************************
+
+import java.util.Random;
+
+public class örn4 {
+
+    public static void main(String[] args) {
+        Random rnd = new Random();
+        for (int i = 0; i < 50; i++) {
+            System.out.println(rnd.nextInt(100)+"\t"); 
+        }
+        System.out.println("");
+        for (int i = 0; i < 50; i++) {
+            System.out.println(rnd.nextDouble()+"\t");            
+        }
+    }
+}
+
+********************************************************************************
+
+class cember{
+    double r;
+    static int nesnesay=0;
+    cember(double nr){
+        r=nr;
+        nesnesay++;
+    }
+    double getAlan(){return Math.PI*r*r;}
+}
+public class örn5 {
+    public static void main(String[] args) {
+        cember c1=new cember(2.3);
+        System.out.println(c1.r+" yarıçaplı çemberin alanı: "+c1.getAlan());
+        System.out.println("Nesne Sayısı: "+cember.nesnesay);
+        cember c2= new cember(3.4);
+        System.out.println(c2.r+" yarıçaplı çemberin alanı: "+c2.getAlan());
+        System.out.println("Nesne Sayısı: "+cember.nesnesay);
+       
+    }
+}
+
+********************************************************************************
+
+public class örn6 {   
+  int faktoriyel(int x){  //static olmadığında bu şekilde
+     int f=1;
+     for (int i = 1; i <= x; i++) 
+         f=f*i;
+         return f;  
+ } 
+    public static void main(String[] args) {
+        örn6 u=new örn6();
+        System.out.println(u.faktoriyel(5));
+    }
+}
+
+********************************************************************************
+
+package bmü112_hafta4_lab;
+
+public class örn7 {
+
+    int i = 4;
+    static int k = 3;
+
+    public static void main(String[] args) {
+        örn7 ö = new örn7();
+        int j = ö.i;
+        ö.m1();
+    }
+
+    void m1() {
+        i = i + k + m2(i, k); // 4+3+64(4 üssü 3)
+        System.out.println("Sonuç: " + i);
+    }
+
+    static int m2(int b, int t) {
+        return (int) (Math.pow(b, t));
+    }
+}
+
+********************************************************************************
+
+class Matematik {
+public final static double PI = 3.141592653589793;
+    final static double e= 2.718281828459045;
+    final static double TAU=6.283185307179586;
+    static double abs(double a){
+        if(a>0) return a;
+        else return (-1)*a;
+    }
+    static int abs(int a){
+      if(a>0) return a;
+      else return (-1)*a;
+}
+    static int max(int a,int b){
+        if(a>b) return a;
+        else return b;
+    }
+}
+public class örn8 {
+    public static void main(String[] args) {
+        System.out.println(Matematik.abs(-5.4));
+        System.out.println(Matematik.abs(-4));
+        System.out.println(Matematik.max(2,4));    
+    }
+}
